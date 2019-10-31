@@ -135,9 +135,9 @@ def read_dataset(dataset_path, ouput_type):
 
 ''' Batch generator'''
 def gen_batches(X, Y, batch_size=16):
-    ''' Shuffle training data '''
-    X_train,Y_train = shuffle(X, Y, random_state=100)
     while(True):
+        ''' Shuffle training data '''
+        X, Y = shuffle(X, Y, random_state=100)
         for i in range(int(X.shape[0]/batch_size)):
             x_batch = X[(i*batch_size):((i+1)*batch_size)]
             y_batch = Y[(i*batch_size):((i+1)*batch_size)]
